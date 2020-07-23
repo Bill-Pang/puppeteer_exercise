@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+  </body>
+
+  <script>
+    console.log(axios);
+    let content = document.querySelector("#content");
+    let str = "";
+    axios.get("./titleList.json").then((res) => {
+      for (let title of res.data) {
+        str += `<p>${title}</p>`;
+      }
+      console.log(content);
+      content.innerHTML = str;
+    });
+  </script>
+</html>
